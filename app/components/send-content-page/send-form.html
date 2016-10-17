@@ -1,0 +1,38 @@
+<div class="row">
+	<form class="col s6 send-form-file">
+		<div class="row">
+		    <div ngf-drop ngf-select ng-model="$ctrl.files" ngf-change="$ctrl.filesChanged()" class="drop-box" 
+        ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false"
+        accept="image/*" 
+        ngf-pattern="'image/*'">
+       			<div class="icon-container" ng->
+				<i class="material-icons file-icon">description</i>
+				<div class="drop-empty">Drop your file here</div>
+				<div class="drop-full">Uploading ...</div>
+			</div> 	
+        </div>
+
+		</div>
+	</form>
+</div>
+
+<div class="middle-text">
+	OR
+</div>
+
+<div class="row">
+	<form class="col s12 send-form-text" ng-submit="$ctrl.submitText()">
+		<div class="row">
+			<div class="input-field col s9">
+				<i class="material-icons prefix">mode_edit</i>
+				<textarea ng-model="$ctrl.transferText" id="icon_prefix2" class="materialize-textarea"></textarea>
+				<label for="icon_prefix2">Write here anything you want ...</label>
+			</div>
+		</div>
+		<div class="row">
+		 	<button class="btn waves-effect waves-light right" type="submit" name="action">Send
+				<i class="material-icons right">send</i>
+			</button>
+		</div>	  
+	</form>
+</div>

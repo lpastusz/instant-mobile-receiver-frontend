@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content="">
+
+		<!-- mobile meta -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+		<!--[if IE]>
+			<link rel="shortcut icon" href="assets/images/favicon.ico">
+		<![endif]-->
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"/>	
+
+	   	<link rel="stylesheet" href="assets/styles/main.css" />
+
+	   	<!-- inject:css -->
+  		<!-- endinject -->
+	</head>
+
+  <body ng-app="app" ng-cloak>
+    <div class="container">
+      <!-- views -->
+      <div ui-view></div>
+    </div>
+    <!-- scripts -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>    
+
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>    
+
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="app.js"></script>
+
+    <script src="services/auth-service.js"></script>
+    <script src="services/transfer-service.js"></script>
+
+
+    <script src="components/core/header.js"></script>
+    <script src="components/core/footer.js"></script>
+
+    <script src="components/home-page/home-page.js"></script>
+
+    <script src="components/login-page/login-page.js"></script>
+
+    <script src="components/send-content-page/send-content-page.js"></script>
+    <script src="components/send-content-page/send-form.js"></script>
+
+    <script src="routes.js"></script>
+
+  </body>
+
+</html>

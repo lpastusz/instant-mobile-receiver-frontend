@@ -1,0 +1,55 @@
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none !important;
+}
+body {
+  background: #fff;
+}
+.send-form-text input:not([type]),
+.send-form-text input[type=text],
+.send-form-text input[type=password],
+.send-form-text input[type=email],
+.send-form-text input[type=url],
+.send-form-text input[type=time],
+.send-form-text input[type=date],
+.send-form-text input[type=datetime],
+.send-form-text input[type=datetime-local],
+.send-form-text input[type=tel],
+.send-form-text input[type=number],
+.send-form-text input[type=search],
+.send-form-text textarea.materialize-textarea {
+  border-bottom-color: #fff;
+}
+.send-form-text .input-field {
+  float: none;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.middle-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+.send-form-file {
+  float: none !important;
+  text-align: center;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.send-form-file .icon-container {
+  font-size: 18px;
+  border: 3px dashed;
+  border-radius: 10px;
+  padding: 50px;
+}
+.send-form-file .icon-container .material-icons {
+  font-size: 80px;
+}
+send-form .dragover {
+  background: #eee;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "instant-mobile-receiver-frontend",
+  "homepage": "https://github.com/luke07/instant-mobile-receiver-frontend",
+  "authors": [
+    "Lukas Pastuszek <lukas.pastuszek@gmail.com"
+  ],
+  "description": "",
+  "main": "app/app.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "1.0.0-beta.1",
+    "materialize": "^0.97.7",
+    "angular-resource": "^1.5.8",
+    "ngstorage": "^0.3.11",
+    "ng-file-upload": "^12.2.12"
+  }
+}
