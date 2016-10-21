@@ -4,10 +4,15 @@ angular
 	.config(configAuthentication);
 
 
-function runConfig($rootScope, $state, $stateParams) {
+function runConfig($rootScope, $state, $stateParams, $window) {
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
-	$rootScope.$restUrl = 'https://localhost:8008/api';
+    if ($window.location.hostname == 'localhost') {
+        $rootScope.$restUrl = 'http://localhost:8008/api';    
+    }
+	else {
+        $rootScope.$restUrl = 'http://instantmobilereceiverapi.kc9vavbsgu.us-west-2.elasticbeanstalk.com/api';  
+    }
 	$rootScope.$basicAuth = 'Basic d2ViX2NsaWVudDp4eHg=';
 }
 

@@ -11,7 +11,7 @@ gulp.task('connect', function () {
     root: 'app/',
     port: 3000,
     fallback: 'app/index.html',
-    https: true
+    https: false
   });
 });
 

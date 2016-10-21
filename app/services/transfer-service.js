@@ -32,9 +32,11 @@ angular
 				return new Promise(function(resolve, reject) {
 	        Upload.upload({
             url: restUrl + '/transfer/file',
+            file: file,
             data: {
-              file: file  
-            }
+            	file: file
+            },
+            method: 'POST'
 	        }).then(function (resp) {
 	            resolve(resp);
 	        }, null, function (evt) {
