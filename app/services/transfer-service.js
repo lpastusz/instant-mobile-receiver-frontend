@@ -17,24 +17,26 @@ angular
 				}
 			});
 
-			self.transferText = function(text) {
+			self.transferText = function(text, deviceId) {
 				
 				return new Promise(function(resolve, reject) {
 					API.transferText({
-						text: text
+						text: text,
+						deviceId: deviceId
 					}, resolve, reject);
 				});		
 			};
 
 
 
-			self.transferFile = function(file) {
+			self.transferFile = function(file, deviceId) {
 				return new Promise(function(resolve, reject) {
 	        Upload.upload({
             url: restUrl + '/transfer/file',
             file: file,
             data: {
-            	file: file
+            	file: file,
+            	deviceId: deviceId
             },
             method: 'POST'
 	        }).then(function (resp) {

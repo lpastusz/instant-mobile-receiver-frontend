@@ -39,6 +39,14 @@ body {
 	}
 }
 
+header {
+	padding-top: 10px;
+	.link-logout {
+		color: #26a69a;
+	}	
+}
+
+
 .middle-text {
 	font-size: 20px;
 //	color: #fff;
@@ -70,5 +78,25 @@ body {
 send-form {
 	.dragover {
 		background: #eee;
+	}
+}
+
+.device-list {
+	padding-top: 10px;
+	.device {
+	    line-height: 1.5em;
+    	height: auto;
+    	padding: 25px;
+		color: #000;
+		background: #fff; 	
+    	&.active {
+    		cursor: default;
+    		background-color: #26a69a;
+    		color: #fff;
+    		&:hover {
+    			background-color: #26a69a;
+    			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    		}
+    	}
 	}
 }
