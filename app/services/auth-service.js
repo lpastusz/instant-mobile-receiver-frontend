@@ -17,6 +17,10 @@ angular
 						'Authorization': $rootScope.$basicAuth
 					}
 				},
+				register: {
+					method: 'POST',
+					url: restUrl + '/user/register',
+				},
 				logout: {
 					method: 'POST',
 					url: restUrl + '/user/logout',
@@ -32,6 +36,15 @@ angular
 					}, resolve, reject);
 				});
 			};
+
+			self.register = function(email, password) {
+				return new Promise(function(resolve, reject) {
+					API.register({
+						email: email,
+						password: password,
+					}, resolve, reject);
+				});
+			};			
 
 			self.logout = function() {
 				return new Promise(function(resolve, reject) {

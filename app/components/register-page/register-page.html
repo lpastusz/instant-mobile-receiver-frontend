@@ -1,5 +1,5 @@
   <div class="row">
-    <form class="col s12 m12 l8 form-login" ng-submit="$ctrl.submitLogin()">
+    <form class="col s12 m12 l8 form-register" ng-submit="$ctrl.submitRegister()">
 		<div class="row">
 			<div class="input-field col s12">
 				  <input id="email" ng-model="$ctrl.email" type="email" class="validate">
@@ -12,11 +12,14 @@
 				  <label for="password">Password</label>
 			</div>
 		</div>
-		<p>
-			Not yet a user? Register <a href="/register">here</a>
-		</p>
 		<div class="row">
-		 	<button class="btn waves-effect waves-light right" type="submit" name="action">Sign in
+			<div class="input-field col s12">
+				  <input id="passwordCheck" ng-model="$ctrl.passwordCheck" type="password" class="validate">
+				  <label for="passwordCheck">Password</label>
+			</div>
+		</div>		
+		<div class="row">
+		 	<button class="btn waves-effect waves-light right" type="submit" name="action">Register
     			<i class="material-icons right">send</i>
   			</button>
 		</div>

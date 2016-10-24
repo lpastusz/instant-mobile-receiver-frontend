@@ -1,7 +1,8 @@
 angular
 	.module('app', ['ui.router', 'ngResource', 'ngStorage', 'ngFileUpload'])
 	.run(runConfig)
-	.config(configAuthentication);
+	.config(configAuthentication)
+    .run(toastrConfig);
 
 
 function runConfig($rootScope, $state, $stateParams, $window) {
@@ -43,7 +44,7 @@ function configAuthentication($httpProvider) {
 		                    }
 
                         if (!isSetAuthHeader(config.headers)) {
-                            if ($location.path() !== '/login') {
+                            if ($location.path() !== '/login' && $location.path() !== '/register') {
                                 $location.path('/login');
                             }
                         }
@@ -60,5 +61,11 @@ function configAuthentication($httpProvider) {
                 };
             }
         ]);  
+
+}
+
+function toastrConfig() {
+
+    toastr.options.poisitonClass = 'toast-top-right';
 
 }

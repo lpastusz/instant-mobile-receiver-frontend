@@ -22,15 +22,28 @@ function SendFormCtrl($rootScope, TransferService, $timeout, DeviceService) {
 
 		var text = ctrl.transferText;
     var selectedDevice = ctrl.selectedDevice;
+
+    if (!selectedDevice) {
+      toastr.error('No device is selected.');
+      return;
+    }
+
+    if (!text) {
+      toastr.error('Text can not be empty.');
+      return;
+    }
 		
 		TransferService.transferText(text, selectedDevice)
 
 		.then(function(data) {
-			console.log(data);
+			toastr.success('Message was send.');
+      $timeout(function() {
+        ctrl.transferText = undefined;
+      });
 		})
 
 		.catch(function(err) {
-			console.log(err);
+			toastr.error('Error while sending a message.');
 		});
 
 	};
@@ -59,10 +72,13 @@ function SendFormCtrl($rootScope, TransferService, $timeout, DeviceService) {
       console.log(resp);
       $timeout(function() {
         ctrl.devices = resp.data;
+        if (!ctrl.devices || ctrl.devices.length == 0) {
+          toastr.error('No devices found. Please, register your mobile first.');
+        }
       });
     })
     .catch(function(err) {
-      console.log(err);
+      toastr.error('Error while receiving your mobile data.');
     });
   };
 

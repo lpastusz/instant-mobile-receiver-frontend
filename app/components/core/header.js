@@ -9,11 +9,11 @@ function HeaderCtrl($rootScope, $localStorage, AuthService) {
 	var ctrl = this;
 
 	ctrl.logout = function() {
-		delete $localStorage.token;
 
 		AuthService.logout()
 
 		.then(function(data) {
+			delete $localStorage.token;
 			window.location = '/login';
 		})
 

@@ -4,19 +4,24 @@ angular
 
 function configRoutes($stateProvider, $locationProvider, $urlRouterProvider) {
   
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
   $locationProvider.html5Mode(true).hashPrefix('!');
 
 	$stateProvider
-		.state('home-page', {
+	/*	.state('home-page', {
 			url: '/',
 			component: 'homePage'
 		})
+	*/
 		.state('login-page', {
 			url: '/login',
 			component: 'loginPage'
 		})
+		.state('register-page', {
+			url: '/register',
+			component: 'registerPage'
+		})		
 		.state('send-content-page', {
 			url: '/transfer',
 			component: 'sendContentPage'

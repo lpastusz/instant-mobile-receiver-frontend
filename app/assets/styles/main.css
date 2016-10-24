@@ -6,6 +6,32 @@
 body {
   background: #fff;
 }
+a {
+  color: #26a69a;
+}
+a:hover {
+  text-decoration: underline;
+  color: #26a69a;
+}
+.toast-top-right {
+  top: 12px !important;
+  right: 12px !important;
+}
+.toast,
+.toast-message {
+  white-space: normal;
+  word-break: normal;
+}
+.form-login {
+  float: none !important;
+  margin-right: auto;
+  max-width: 500px;
+}
+.form-register {
+  float: none !important;
+  margin-right: auto;
+  max-width: 500px;
+}
 .send-form-text input:not([type]),
 .send-form-text input[type=text],
 .send-form-text input[type=password],
@@ -32,6 +58,11 @@ header {
 }
 header .link-logout {
   color: #26a69a;
+}
+.container {
+  max-width: 1100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .middle-text {
   font-size: 20px;
