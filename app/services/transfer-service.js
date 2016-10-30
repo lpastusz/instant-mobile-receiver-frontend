@@ -4,7 +4,9 @@ angular
 		'$resource',
 		'$rootScope',
 		'Upload',
-		function($resource, $rootScope, Upload) {
+		'$http',
+		'$localStorage',
+		function($resource, $rootScope, Upload, $http, $localStorage) {
 
 			var self = function() {};
 
@@ -14,8 +16,13 @@ angular
 				transferText: {
 					method: 'POST',
 					url: restUrl + '/transfer/text'
+				},
+				transferTextFile: {
+					method: 'POST',
+					url: restUrl + '/transfer/file/text'
 				}
 			});
+
 
 			self.transferText = function(text, deviceId) {
 				
@@ -28,26 +35,45 @@ angular
 			};
 
 
+			self.uploadFileToAWS = function(file, timestamp) {
+				
+				var email = $localStorage.email;
+				var url = 'https://r5wc3eim09.execute-api.eu-west-1.amazonaws.com/test/instant-mobile-receiver-uploaded-files-test/' + email + '%2F' + timestamp;
+				var method = 'PUT';
+				var authKey = $localStorage.authKey;
+				var type = file.type;
 
-			self.transferFile = function(file, deviceId) {
 				return new Promise(function(resolve, reject) {
-	        Upload.upload({
-            url: restUrl + '/transfer/file',
-            file: file,
-            data: {
-            	file: file,
-            	deviceId: deviceId
-            },
-            method: 'POST'
-	        }).then(function (resp) {
-	            resolve(resp);
-	        }, null, function (evt) {
-	            var progressPercentage = parseInt(100.0 *
-	            		evt.loaded / evt.total);
-	            console.log('progress: ' + progressPercentage + 
-	            	'% ' + evt.config.data.file.name + '\n');
-	        });
+		        $http({
+	            url: url,
+	            method: "PUT",
+	            data: file,
+	            headers: { 
+	            	'Content-Type': type, 
+	            	'AuthKey': authKey
+	            }
+	        }).success(resolve)
+	        .error(reject);		
 				});
+
+			}
+
+
+			self.sendTextFileToDevice = function(file, deviceId, timestamp) {
+
+				var email = $localStorage.email;
+				var url = 'https://r5wc3eim09.execute-api.eu-west-1.amazonaws.com/test/instant-mobile-receiver-uploaded-files-test/' + email + '%2F' + timestamp;
+
+				return new Promise(function(resolve, reject) {
+
+					API.transferTextFile({
+						fileName: file.name,
+						deviceId: deviceId,
+						fileUrl: url
+					}, resolve, reject);
+
+				});
+
 			};
 
 			return self;

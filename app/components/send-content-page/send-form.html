@@ -11,12 +11,12 @@
 		<div class="row">
 		    <div ngf-drop ngf-select ng-model="$ctrl.files" ngf-change="$ctrl.filesChanged()" class="drop-box" 
         ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false"
-        accept="image/*" 
-        ngf-pattern="'image/*'">
+        accept=".txt" 
+        ngf-pattern="'text/*'"
+        ngf-max-size="1MB" >
        			<div class="icon-container" ng->
 				<i class="material-icons file-icon">description</i>
 				<div class="drop-empty">Drop your file here</div>
-				<div class="drop-full">Uploading ...</div>
 			</div> 	
         </div>
 

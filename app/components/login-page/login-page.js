@@ -14,19 +14,24 @@ function LoginPageCtrl($rootScope, AuthService, $localStorage, $timeout) {
 
 	ctrl.submitLogin = function() {
 
-		if (!ctrl.email) {
+		var email = ctrl.email;
+		var password = ctrl.password;
+
+		if (!email) {
 			toastr.error('Email can not be empty.');
 			return;
 		}
 
-		if (!ctrl.password) {
+		if (!password) {
 			toastr.error('Password can not be empty.');
 			return;
 		}
 
-		AuthService.login(ctrl.email, ctrl.password)
+		AuthService.login(email, password)
 		.then(function(data) {
 			$localStorage.token = data.token_type + ' ' + data.access_token;
+			$localStorage.authKey = data.access_token;
+			$localStorage.email = email;
 			window.location = "/transfer";
 		})
 		.catch(function(err) {

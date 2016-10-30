@@ -51,17 +51,30 @@ function SendFormCtrl($rootScope, TransferService, $timeout, DeviceService) {
   ctrl.filesChanged = function () {
       var selectedDevice = ctrl.selectedDevice;
   		var file = ctrl.files;
-      if (!file.$error) {
 
-      	TransferService.transferFile(file, selectedDevice)
-      	.then(function(resp) {
-					$timeout(function() {
-              ctrl.log = 'file: ' +
-              resp.config.data.file.name +
-              ', Response: ' + JSON.stringify(resp.data) +
-              '\n' + ctrl.log;
-          });
-      	});
+      if (!file) {
+        return;
+      }
+
+
+      if (file.$error) {
+        toastr.error('Error while uploading the file.');
+      }
+      else {
+
+        var timestamp = timestamp = (new Date()).toISOString().replace(/-/g,"").replace(/:/g,"").slice(0, 15);
+
+      	TransferService.uploadFileToAWS(file, timestamp)
+
+        .then(TransferService.sendTextFileToDevice(file, selectedDevice, timestamp))
+
+        .then(function(resp) {
+          toastr.success('File was sent to your mobile device.');
+        })
+
+        .catch(function(err) {
+          toastr.error('Error while uploading the file.');
+        });
 
       }
   };
